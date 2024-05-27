@@ -189,7 +189,7 @@ function* logOut() {
 }
 
 function signUpAPI(data) {
-  return axios.post('/user', data); // http://api.nodebird.com/user
+  return axios.post('/user', data); // 개발 환경: http://localhost:3065/user, 프로덕션 환경: http://api.nodebird.com/user
 }
 
 function* signUp(action) {
