@@ -56,7 +56,7 @@ const Signup = () => {
     setTermError(false);
   }, []);
 
-  const onSubmit = useCallback(() => {
+  const onSubmit = useCallback(() => { // Submit 시 onSubmit 함수 호출
     if (password !== passwordCheck) {
       return setPasswordError(true);
     }
@@ -64,7 +64,7 @@ const Signup = () => {
       return setTermError(true);
     }
     console.log(email, nickname, password);
-    dispatch({
+    dispatch({ // SIGN_UP_REQUEST 액션을 Redux store에 dispatch 
       type: SIGN_UP_REQUEST,
       data: { email, password, nickname },
     });

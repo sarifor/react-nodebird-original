@@ -15,10 +15,10 @@ db.Comment = comment;
 db.Hashtag = hashtag;
 db.Image = image;
 db.Post = post;
-db.User = user;
+db.User = user; // User 데이터
 
 Object.keys(db).forEach(modelName => {
-  db[modelName].init(sequelize);
+  db[modelName].init(sequelize); // "DB 접속"
 })
 
 Object.keys(db).forEach(modelName => {

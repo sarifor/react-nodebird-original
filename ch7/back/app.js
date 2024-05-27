@@ -18,7 +18,7 @@ const passportConfig = require('./passport');
 
 dotenv.config();
 const app = express();
-db.sequelize.sync()
+db.sequelize.sync() // DB 연결
   .then(() => {
     console.log('db 연결 성공');
   })
@@ -47,7 +47,7 @@ app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(session({
   saveUninitialized: false,
   resave: false,
-  secret: process.env.COOKIE_SECRET,
+  secret: process.env.COOKIE_SECRET, // .env에 값 설정 안 하면 Error: secret option required for sessions 뜸
   cookie: {
     httpOnly: true,
     secure: false,
@@ -63,7 +63,7 @@ app.get('/', (req, res) => {
 
 app.use('/posts', postsRouter);
 app.use('/post', postRouter);
-app.use('/user', userRouter);
+app.use('/user', userRouter); // /user로 접속하면 userRouter 실행
 app.use('/hashtag', hashtagRouter);
 
 app.listen(3065, () => {

@@ -1,7 +1,7 @@
 const DataTypes = require('sequelize');
 const { Model } = DataTypes;
 
-module.exports = class User extends Model {
+module.exports = class User extends Model { // User 모델
   static init(sequelize) {
     return super.init({
       // id가 기본적으로 들어있다.

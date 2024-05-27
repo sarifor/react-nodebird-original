@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => { // GET /user
   try {
     if (req.user) {
-      const fullUserWithoutPassword = await User.findOne({
+      const fullUserWithoutPassword = await User.findOne({ // DB에 유저 정보 등록
         where: { id: req.user.id },
         attributes: {
           exclude: ['password']
