@@ -40,12 +40,12 @@ const Home = () => {
       }
     }
     window.addEventListener('scroll', onScroll);
-
-    // 2.3 사용자 인터페이스 구성
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
   }, [hasMorePosts, loadPostsLoading, mainPosts]);
+
+  // 2.3 사용자 인터페이스 구성
   return (
     <AppLayout>
       {me && <PostForm />}
