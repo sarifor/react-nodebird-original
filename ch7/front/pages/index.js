@@ -19,14 +19,16 @@ const Home = () => {
   const { me } = useSelector((state) => state.user);
   const { mainPosts, hasMorePosts, loadPostsLoading, retweetError } = useSelector((state) => state.post);
 
-  // 2.1 리트윗 에러 핸들링 이펙트: 리트윗 에러 발생 시 사용자에게 알림
+  // 2.1 리트윗 에러 핸들링 이펙트: 
+  // 리트윗 에러 발생 시 사용자에게 알림
   useEffect(() => {
     if (retweetError) {
       alert(retweetError);
     }
   }, [retweetError]);
 
-  // 2.2 스크롤 이벤트 핸들링 이펙트: 스크롤 시 추가 포스트 로딩
+  // 2.2 스크롤 이벤트 핸들링 이펙트: 
+  // 스크롤 시 추가 포스트 로딩
   useEffect(() => {
     function onScroll() {
       if (window.pageYOffset + document.documentElement.clientHeight > document.documentElement.scrollHeight - 300) {
@@ -54,7 +56,8 @@ const Home = () => {
   );
 };
 
-// 3. 서버 사이드 렌더링: 서버 사이드에서 초기 데이터 로딩
+// 3. 서버 사이드 렌더링: 
+// 서버 사이드에서 초기 데이터 로딩
 export const getServerSideProps = wrapper.getServerSideProps(async (context) => {
   // 3.1 쿠키 설정
   const cookie = context.req ? context.req.headers.cookie : '';
